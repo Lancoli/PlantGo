@@ -2,11 +2,9 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -74,7 +72,7 @@ public class DecouvrirActivity extends AppCompatActivity {
             Rando rando = randos.get(position);
             // pour récupérer les données de la rando, il suffira
             // de faire « rando.nomRando », « rando.lieuRando », etc …
-            View vieww = getLayoutInflater().inflate(R.layout.rando_activite, null);
+            View vieww = getLayoutInflater().inflate(R.layout.plant_list_item, null);
 
             // on recherche le champ de texte pour le nom de la rando :
             TextView nomRandoText = (TextView) vieww.findViewById(R.id.item_nom_rando);

@@ -14,13 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClickDecouvrir(View view) {
+    public void onClickSignUp(View view) {
         startActivity(new Intent(this,
                 DecouvrirActivity.class));
-    }
-
-    public void onClickRandonner(View view) {
-        startActivity(new Intent(this,
-                RandonnerActivity.class));
     }
 }
