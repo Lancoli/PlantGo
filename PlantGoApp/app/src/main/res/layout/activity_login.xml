@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@color/background">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="15dp">
+
         <TextView
             android:id="@+id/pageTitle"
             android:layout_width="wrap_content"
@@ -17,28 +20,37 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Pseudo"
-            android:textSize="16pt"
-            android:textColor='@color/white' />
+            android:textColor='@color/white'
+            android:textSize="16pt" />
 
         <EditText
             android:id="@+id/pseudo_input"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLines="1"
-            android:lines="1"
             android:hint="@string/pseudo_input_placeholder"
-            />
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/trail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:text="Continuer"
-            android:textSize='15pt'
+            android:layout_centerVertical="true"
+
+            android:onClick="onClickSignUp"
             android:textColor="@color/white"
-            android:onClick="onClickSignUp"/>
+            android:textSize='15pt' />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickSignUp"
+            android:text="Se connecter"
+            android:background="@drawable/button"
+            />
+
     </LinearLayout>
 </RelativeLayout>
