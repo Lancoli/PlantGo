@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,12 +18,9 @@ public class CategoriesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String SELECTED_CATEGORY = "selectedCategory";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private String selectedCategory = "water";
 
     public void setSelectedCategory(String selectedCategory) {
@@ -41,16 +39,14 @@ public class CategoriesFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param selectedCategory
      * @return A new instance of fragment CategoriesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CategoriesFragment newInstance(String param1, String param2) {
+    public static CategoriesFragment newInstance(String selectedCategory) {
         CategoriesFragment fragment = new CategoriesFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(SELECTED_CATEGORY, selectedCategory);
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,8 +55,7 @@ public class CategoriesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            selectedCategory = getArguments().getString(SELECTED_CATEGORY);
         }
     }
 
@@ -68,7 +63,30 @@ public class CategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_categories, container, false);
+
+        ImageButton selectWater = view.findViewById(R.id.selectWater);
+        selectWater.setOnClickListener(event -> {
+            handleSelectWater();
+        });
+
+        ImageButton selectSize = view.findViewById(R.id.selectSize);
+        selectSize.setOnClickListener(event -> {
+            handleSelectSize();
+        });
+
+        ImageButton selectDifficulty = view.findViewById(R.id.selectDifficulty);
+        selectDifficulty.setOnClickListener(event -> {
+            handleSelectDifficulty();
+        });
+
+        ImageButton selectLight = view.findViewById(R.id.selectLight);
+        selectLight.setOnClickListener(event -> {
+            handleSelectLight();
+        });
+
+        return view;
     }
 
     public void handleSelectWater() {

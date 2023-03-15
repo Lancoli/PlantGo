@@ -24,7 +24,7 @@
             android:text="WATER"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:onClick="handleSelectWater"
+            android:id="@+id/selectWater"
         />
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:text="SIZE"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:onClick="handleSelectSize"
+            android:id="@+id/selectSize"
         />
         <TextView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:text="DIFFICULTY"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:onClick="handleSelectDifficulty"
+            android:id="@+id/selectDifficulty"
         />
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:text="LIGHT"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:onClick="handleSelectLight"
+            android:id="@+id/selectLight"
         />
     </LinearLayout>
     <RelativeLayout style="@style/Divider.Horizontal" android:background="@color/light_grey"></RelativeLayout>
