@@ -50,11 +50,6 @@
             android:onClick="onClickSignUp"
             android:text="Se connecter"
             android:background="@drawable/button"
-            />
-
+        />
     </LinearLayout>
-    <FrameLayout
-        android:id="@+id/navbar"
-        style="@style/Navbar"
-    />
 </RelativeLayout>

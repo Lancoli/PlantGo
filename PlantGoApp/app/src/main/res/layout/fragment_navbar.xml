@@ -12,6 +12,7 @@
     android:padding="15px"
 >
     <ImageButton
+        android:id="@+id/findPlantsAction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/help_icon"

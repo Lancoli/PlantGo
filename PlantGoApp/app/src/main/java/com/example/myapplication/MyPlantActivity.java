@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MyPlantActivity extends AppCompatActivity {
 
-    ArrayList<Plant> plantsList = new ArrayList<Plant>();
+    ArrayList<Plant> plantsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,11 @@ public class MyPlantActivity extends AppCompatActivity {
                 startActivity(detailsIntent);
             }
         });
+
+        NavbarFragment navbarFragment = new NavbarFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.navbar, navbarFragment)
+                .commit();
     }
 
     public void onClickGoBack(View view) {
