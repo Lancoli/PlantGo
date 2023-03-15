@@ -38,7 +38,7 @@ public class MyPlantActivity extends AppCompatActivity {
         liste.setAdapter(adapter);
     }
 
-    public void onClickRetour(View view) {
+    public void onClickGoBack(View view) {
         this.finish();
     }
 
