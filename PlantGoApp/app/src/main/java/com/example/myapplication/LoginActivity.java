@@ -12,8 +12,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        NavbarFragment navbarFragment = new NavbarFragment();
+        getSupportFragmentManager().beginTransaction()
+            .add(R.id.navbar, navbarFragment)
+            .commit();
     }
-
 
     public void onClickSignUp(View view) {
         Intent intent = new Intent(this, HomeActivity.class);
