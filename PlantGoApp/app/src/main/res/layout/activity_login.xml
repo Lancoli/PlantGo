@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@color/background">
-
+    android:background="@color/background"
+>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
-
+        android:padding="15dp"
+    >
         <TextView
             android:id="@+id/pageTitle"
             android:layout_width="wrap_content"
@@ -50,7 +50,6 @@
             android:onClick="onClickSignUp"
             android:text="Se connecter"
             android:background="@drawable/button"
-            />
-
+        />
     </LinearLayout>
 </RelativeLayout>

@@ -6,12 +6,18 @@
 
     <style name="Divider.Horizontal" parent="Divider">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:layout_height">2px</item>
     </style>
 
     <style name="Divider.Vertical" parent="Divider">
-        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_width">2px</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+
+    <style name="Navbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
     </style>
 </resources>

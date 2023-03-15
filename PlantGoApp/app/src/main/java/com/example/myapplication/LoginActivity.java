@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         TextView connectBtn = (TextView) findViewById(R.id.connectButton);
     }
 
-
     public void onClickSignUp(View view) {
         //Intent intent = new Intent(this, MyPlantActivity.class);
         //startActivity(intent);
