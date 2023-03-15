@@ -2,9 +2,11 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,6 +38,15 @@ public class MyPlantActivity extends AppCompatActivity {
         ListView liste = (ListView) findViewById(R.id.plants);
         PlantAdapter adapter = new PlantAdapter(plantsList);
         liste.setAdapter(adapter);
+
+        //On click event
+        liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent detailsIntent = new Intent(MyPlantActivity.this, PlantDetailsActivity.class);
+                startActivity(detailsIntent);
+            }
+        });
     }
 
     public void onClickGoBack(View view) {
