@@ -13,11 +13,6 @@ public class FindPlantsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_plants);
 
-        NavbarFragment navbarFragment = new NavbarFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.navbar, navbarFragment)
-                .commit();
-
         categoriesFragment = new CategoriesFragment();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.categories, categoriesFragment)

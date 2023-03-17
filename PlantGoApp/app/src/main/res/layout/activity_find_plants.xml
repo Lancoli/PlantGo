@@ -39,8 +39,4 @@
             android:layout_width="match_parent">
         </ListView>
     </LinearLayout>
-    <FrameLayout
-        android:id="@+id/navbar"
-        style="@style/Navbar"
-    />
 </RelativeLayout>

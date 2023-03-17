@@ -47,11 +47,6 @@ public class MyPlantActivity extends AppCompatActivity {
                 startActivity(detailsIntent);
             }
         });
-
-        NavbarFragment navbarFragment = new NavbarFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.navbar, navbarFragment)
-                .commit();
     }
 
     public void onClickGoBack(View view) {
