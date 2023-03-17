@@ -7,13 +7,9 @@ public class Plant {
     private String resistance;
     private String lightNeeds;
 
-    public Plant() {
-    }
-
     public Plant(String name) {
         this.name = name;
     }
-
 
     public String getName() {
         return name;

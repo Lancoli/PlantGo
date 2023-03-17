@@ -17,6 +17,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_PLANTS = "plants";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
+    private static final String KEY_SIZE = "name";
+    private static final String KEY_RESISTANCE = "name";
+    private static final String KEY_LIGHTNEEDS = "name";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -45,7 +48,10 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_NAME, plant.getName()); // Contact Name
+        values.put(KEY_NAME, plant.getName()); // Plant Name
+        values.put(KEY_SIZE, plant.getSize()); // Plant Size
+        values.put(KEY_RESISTANCE, plant.getResistance()); // Plant Resistance
+        values.put(KEY_LIGHTNEEDS, plant.getLightNeeds()); // Plant LightNeeds
 
         // Inserting Row
         db.insert(TABLE_PLANTS, null, values);
@@ -83,9 +89,8 @@ public class DBHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Plant plant = new Plant();
+                Plant plant = new Plant(cursor.getString(1));
                 plant.setId(Integer.parseInt(cursor.getString(0)));
-                plant.setName(cursor.getString(1));
 
                 plantList.add(plant);
             } while (cursor.moveToNext());

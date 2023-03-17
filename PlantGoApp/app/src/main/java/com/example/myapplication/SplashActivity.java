@@ -17,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_splash);
         initLoaderAnimation();
+        generateInitialMock();
 
         CountDownTimer timer = new CountDownTimer(1000, 1000) {
             @Override
@@ -44,5 +45,45 @@ public class SplashActivity extends AppCompatActivity {
         rotate.setDuration(2000);
         ImageView loader = findViewById(R.id.loader);
         loader.setAnimation(rotate);
+    }
+
+    public void generateInitialMock() {
+        DBHandler db = new DBHandler(this);
+
+        Plant eucalyptus = new Plant("Eucalyptus");
+        eucalyptus.setLightNeeds(PlantLightNeeds.MEDIUM.toString());
+        eucalyptus.setSize(PlantSize.MEDIUM.toString());
+        eucalyptus.setResistance(PlantResistance.STRONG.toString());
+        db.addPlant(eucalyptus);
+
+        Plant forcitia = new Plant("Forcitia");
+        forcitia.setLightNeeds(PlantLightNeeds.LOW.toString());
+        forcitia.setSize(PlantSize.LARGE.toString());
+        forcitia.setResistance(PlantResistance.STRONG.toString());
+        db.addPlant(forcitia);
+
+        Plant trombitus = new Plant("Trombitus");
+        trombitus.setLightNeeds(PlantLightNeeds.LOW.toString());
+        trombitus.setSize(PlantSize.LARGE.toString());
+        trombitus.setResistance(PlantResistance.WEAK.toString());
+        db.addPlant(trombitus);
+
+        Plant rectibitus = new Plant("Rectibitus");
+        rectibitus.setLightNeeds(PlantLightNeeds.LOW.toString());
+        rectibitus.setSize(PlantSize.TINY.toString());
+        rectibitus.setResistance(PlantResistance.STRONG.toString());
+        db.addPlant(rectibitus);
+
+        Plant tessitorus = new Plant("Tessitorus");
+        tessitorus.setLightNeeds(PlantLightNeeds.IMPORTANT.toString());
+        tessitorus.setSize(PlantSize.LARGE.toString());
+        tessitorus.setResistance(PlantResistance.WEAK.toString());
+        db.addPlant(tessitorus);
+
+        Plant analibitus = new Plant("Analibitus");
+        analibitus.setLightNeeds(PlantLightNeeds.IMPORTANT.toString());
+        analibitus.setSize(PlantSize.HUGE.toString());
+        analibitus.setResistance(PlantResistance.WEAK.toString());
+        db.addPlant(analibitus);
     }
 }

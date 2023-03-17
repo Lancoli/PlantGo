@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="10pt"
                 android:text="Détail d'une plante"/>
         </LinearLayout>
         <RelativeLayout
@@ -39,23 +39,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="30px"
+            android:gravity="center"
             >
             <TextView
+                android:id="@+id/plant_details_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Détail d'une plante"/>
+                android:textSize="8pt" />
             <TextView
+                android:id="@+id/plant_details_lightNeeds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Détail d'une plante"/>
+                android:textSize="8pt" />
             <TextView
+                android:id="@+id/plant_details_resistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Détail d'une plante"/>
+                android:textSize="8pt" />
+            <TextView
+                android:id="@+id/plant_details_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="8pt" />
         </LinearLayout>
     </LinearLayout>
 

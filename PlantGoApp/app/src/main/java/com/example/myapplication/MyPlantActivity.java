@@ -44,8 +44,13 @@ public class MyPlantActivity extends AppCompatActivity {
         //On click event
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int idx, long l) {
                 Intent detailsIntent = new Intent(MyPlantActivity.this, PlantDetailsActivity.class);
+                Plant selectedPlant = plantsList.get(idx);
+                detailsIntent.putExtra("name", selectedPlant.getName());
+                detailsIntent.putExtra("lightNeeds", selectedPlant.getLightNeeds());
+                detailsIntent.putExtra("resistance", selectedPlant.getResistance());
+                detailsIntent.putExtra("size", selectedPlant.getSize());
                 startActivity(detailsIntent);
             }
         });
