@@ -17,6 +17,7 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class NavbarFragment extends Fragment {
+    private Context context;
 
     public NavbarFragment() {
     }
@@ -46,18 +47,31 @@ public class NavbarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navbar, container, false);
 
+        context = getContext();
+
         ImageButton findPlantsAction = view.findViewById(R.id.findPlantsAction);
         findPlantsAction.setOnClickListener(event -> {
             handleRedirectFindPlants();
+        });
+
+        ImageButton myPlantsAction = view.findViewById(R.id.myPlantsAction);
+        myPlantsAction.setOnClickListener(event -> {
+            handleRedirectMyPlants();
         });
 
         return view;
     }
 
     public void handleRedirectFindPlants() {
-        Context context = getContext();
         if (context != null) {
             Intent intent = new Intent(context, FindPlantsActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public void handleRedirectMyPlants() {
+        if (context != null) {
+            Intent intent = new Intent(context, MyPlantActivity.class);
             startActivity(intent);
         }
     }
