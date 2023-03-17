@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyPlantActivity extends AppCompatActivity {
 
@@ -22,18 +24,18 @@ public class MyPlantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plants);
 
-        Plant plant1 = new Plant();
-        plant1.name = "Lamium Purpureum";
-
-        Plant plant2 = new Plant();
-        plant2.name = "Arbre à papillon";
-
-        plantsList.add(plant1);
-        plantsList.add(plant2);
-
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
         // relie l’adaptateur à la liste
+
+        DBHandler db = new DBHandler(this);
+        plantsList = db.getAllPlants();
+
+        for (Plant cn : plantsList) {
+            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName();
+            // Writing Contacts to log
+            Log.d("Name: ", log);
+        }
 
         ListView liste = (ListView) findViewById(R.id.plants);
         PlantAdapter adapter = new PlantAdapter(plantsList);
@@ -68,7 +70,7 @@ public class MyPlantActivity extends AppCompatActivity {
             View itemView = getLayoutInflater().inflate(R.layout.plant_list_item, null);
 
             TextView nomRandoText = (TextView) itemView.findViewById(R.id.item_nom_rando);
-            nomRandoText.setText(plant.name);
+            nomRandoText.setText(plant.getName());
             return itemView;
         }
 
