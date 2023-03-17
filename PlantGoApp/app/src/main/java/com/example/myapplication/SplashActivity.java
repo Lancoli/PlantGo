@@ -34,6 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void handleRedirectLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
+        //Intent intent = new Intent(this, AddPlantActivity.class);
         startActivity(intent);
     }
 

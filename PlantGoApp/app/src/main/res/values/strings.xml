@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">PlantGo</string>
     <string name="help_icon_description">Aide</string>
     <string name="climate_map_description">Carte graphique des climats</string>
     <string name="pseudo_input_placeholder">Pseudonyme</string>

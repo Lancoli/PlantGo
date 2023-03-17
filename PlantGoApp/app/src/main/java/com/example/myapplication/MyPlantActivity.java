@@ -17,6 +17,7 @@ import java.util.List;
 
 public class MyPlantActivity extends AppCompatActivity {
 
+    public static final int RESULT_ADD_PLANT = 5;
     ArrayList<Plant> plantsList = new ArrayList<>();
 
     @Override
@@ -31,11 +32,6 @@ public class MyPlantActivity extends AppCompatActivity {
         DBHandler db = new DBHandler(this);
         plantsList = db.getAllPlants();
 
-        for (Plant cn : plantsList) {
-            String log = "Id: " + cn.getId() + " ,Name: " + cn.getName();
-            // Writing Contacts to log
-            Log.d("Name: ", log);
-        }
 
         ListView liste = (ListView) findViewById(R.id.plants);
         PlantAdapter adapter = new PlantAdapter(plantsList);
@@ -58,6 +54,24 @@ public class MyPlantActivity extends AppCompatActivity {
 
     public void onClickGoBack(View view) {
         this.finish();
+    }
+
+    public void onClickAddPlant(View view) {
+        Intent detailsIntent = new Intent(MyPlantActivity.this, AddPlantActivity.class);
+        startActivityForResult(detailsIntent, RESULT_ADD_PLANT);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        DBHandler db = new DBHandler(this);
+        plantsList = db.getAllPlants();
+
+        ListView liste = (ListView) findViewById(R.id.plants);
+        PlantAdapter adapter = new PlantAdapter(plantsList);
+        liste.setAdapter(adapter);
+
     }
 
     class PlantAdapter extends BaseAdapter {

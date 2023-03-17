@@ -36,11 +36,36 @@
             android:layout_height="1px"
             android:background="@color/light_grey">
         </RelativeLayout>
-        <ListView
-            android:id="@+id/plants"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="30px"
-            android:layout_width="match_parent">
-        </ListView>
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/plants"
+                android:layout_height="match_parent"
+                android:padding="30px"
+                android:layout_width="match_parent"
+                android:layout_weight="0.8">
+            </ListView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ajouter une plante"
+                    android:padding="15dp"
+                    android:background="@color/green"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:onClick="onClickAddPlant" />
+            </RelativeLayout>
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
