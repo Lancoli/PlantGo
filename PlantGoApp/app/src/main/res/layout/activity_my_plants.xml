@@ -31,10 +31,15 @@
                 android:textColor="@color/black"
                 android:text="Mes plantes"/>
         </LinearLayout>
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/light_grey">
+        </RelativeLayout>
         <ListView
             android:id="@+id/plants"
             android:layout_height="match_parent"
+            android:padding="30px"
             android:layout_width="match_parent">
         </ListView>
     </LinearLayout>
