@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".activity.AddPlantActivity">
 
     <LinearLayout
@@ -12,16 +13,25 @@
         android:orientation="vertical"
         android:padding="15dp"
         >
-        <TextView
-            android:id="@+id/pageTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Ajout de plante"
-            android:textColor='@color/white'
-            android:textSize="16pt" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/arrow_icon"
+                android:rotationY="180"
+                android:onClick="onClickGoBack"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:layout_gravity="center_vertical"
+                android:text="Ajout de plante"/>
+        </LinearLayout>
         <EditText
             android:id="@+id/inputName"
             android:layout_width="match_parent"
@@ -33,6 +43,7 @@
 
         <LinearLayout
             android:id="@+id/photoButton"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -55,6 +66,7 @@
             android:onClick="onClickValidatePlant"
             android:text="Enregistrer"
             android:background="@drawable/button"
+            android:layout_gravity="bottom"
             />
     </LinearLayout>
 
