@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AddPlantActivity extends AppCompatActivity {
-
     public static final int RESULT_OK = 1;
 
     EditText inputName;
@@ -26,12 +25,18 @@ public class AddPlantActivity extends AppCompatActivity {
 
     public void onClickValidatePlant(View view) {
         String finalName = inputName.getText().toString();
-        if(finalName != null) {
+        if(finalName != null && finalName.isEmpty()) {
             Plant plant = new Plant(finalName);
             DBHandler db = new DBHandler(this);
             db.addPlant(plant);
             this.setResult(RESULT_OK, null);
             this.finish();
+        } else {
+
         }
+    }
+
+    public void onClickGoBack(View view) {
+        this.finish();
     }
 }
