@@ -46,11 +46,13 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
         initActivity();
-        setupComponents();
-        applyArrayAdapters();
     }
 
-    private void setupComponents() {
+    private void initActivity() {
+        takePhotoButton = (Button) findViewById(R.id.takePhotoButton);
+        photoImage = (ImageView) findViewById(R.id.photoImage);
+        initTakePhoto();
+
         // nom de la plante
         inputName = (EditText)findViewById(R.id.inputName);
 
@@ -65,12 +67,8 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         //recup taille de la plante
         sizeSpinner = (Spinner) findViewById(R.id.spinnerSize);
         sizeSpinner.setOnItemSelectedListener(this);
-    }
 
-    private void initActivity() {
-        takePhotoButton = (Button) findViewById(R.id.takePhotoButton);
-        photoImage = (ImageView) findViewById(R.id.photoImage);
-        initTakePhoto();
+        applyArrayAdapters();
     }
 
     private void initTakePhoto() {
