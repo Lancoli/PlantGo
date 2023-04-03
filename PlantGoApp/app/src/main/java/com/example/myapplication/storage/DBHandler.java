@@ -1,14 +1,14 @@
-package com.example.myapplication;
+package com.example.myapplication.storage;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import com.example.myapplication.business.plant.Plant;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -44,7 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // code to add the new plant
-    void addPlant(Plant plant) {
+    public void addPlant(Plant plant) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();

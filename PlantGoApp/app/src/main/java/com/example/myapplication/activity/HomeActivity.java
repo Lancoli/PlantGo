@@ -1,8 +1,11 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.myapplication.R;
+import com.example.myapplication.ui.fragments.NavbarFragment;
 
 public class HomeActivity extends AppCompatActivity {
 

@@ -1,10 +1,12 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
+
+import com.example.myapplication.R;
+import com.example.myapplication.ui.fragments.CategoriesFragment;
 
 public class FindPlantsActivity extends AppCompatActivity {
     private CategoriesFragment categoriesFragment;

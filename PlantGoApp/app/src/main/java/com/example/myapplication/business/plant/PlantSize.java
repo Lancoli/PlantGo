@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.business.plant;
 
 public enum PlantSize {
     TINY,
