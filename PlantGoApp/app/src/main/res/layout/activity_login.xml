@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Pseudo"
-            android:textColor='@color/white'
+            android:text="Ravi de vous revoir!"
+            android:textColor='@color/black'
             android:textSize="16pt" />
 
         <EditText
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:onClick="onClickSignUp"
             android:text="Se connecter"
-            android:background="@drawable/button"
+            android:backgroundTint="@color/green"
         />
     </LinearLayout>
 </RelativeLayout>
