@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_splash);
         initLoaderAnimation();
-        generateInitialMock();
+        //generateInitialMock();
 
         CountDownTimer timer = new CountDownTimer(1000, 1000) {
             @Override

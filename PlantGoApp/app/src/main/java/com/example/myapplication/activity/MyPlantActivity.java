@@ -67,6 +67,7 @@ public class MyPlantActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
+        //rafraichi la liste de plante après l'ajout d'une plante
         DBHandler db = new DBHandler(this);
         plantsList = db.getAllPlants();
 
@@ -90,8 +91,8 @@ public class MyPlantActivity extends AppCompatActivity {
             Plant plant = plantsList.get(position);
             View itemView = getLayoutInflater().inflate(R.layout.plant_list_item, null);
 
-            TextView nomRandoText = (TextView) itemView.findViewById(R.id.item_nom_rando);
-            nomRandoText.setText(plant.getName());
+            TextView plantName = (TextView) itemView.findViewById(R.id.plant_name);
+            plantName.setText(plant.getName());
             return itemView;
         }
 

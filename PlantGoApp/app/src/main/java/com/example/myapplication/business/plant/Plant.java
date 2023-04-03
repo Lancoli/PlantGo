@@ -1,5 +1,7 @@
 package com.example.myapplication.business.plant;
 
+import com.example.myapplication.business.utils.Constants;
+
 public class Plant {
     private int id;
     private String name;
@@ -49,5 +51,17 @@ public class Plant {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static String[] getLightNeedsOptions() {
+       return new String[]{Constants.EMPTY_OPTION, PlantLightNeeds.LOW.toString(), PlantLightNeeds.MEDIUM.toString(), PlantLightNeeds.IMPORTANT.toString()};
+    }
+
+    public static String[] getResistanceOptions() {
+        return new String[]{Constants.EMPTY_OPTION, PlantResistance.WEAK.toString(), PlantResistance.STRONG.toString()};
+    }
+
+    public static String[] getSizeOptions() {
+        return new String[]{Constants.EMPTY_OPTION,PlantSize.TINY.toString(), PlantSize.SMALL.toString(), PlantSize.MEDIUM.toString(), PlantSize.LARGE.toString(), PlantSize.HUGE.toString()};
     }
 }

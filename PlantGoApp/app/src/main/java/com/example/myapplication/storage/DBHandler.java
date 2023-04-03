@@ -17,9 +17,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_PLANTS = "plants";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
-    private static final String KEY_SIZE = "name";
-    private static final String KEY_RESISTANCE = "name";
-    private static final String KEY_LIGHTNEEDS = "name";
+    private static final String KEY_SIZE = "size";
+    private static final String KEY_RESISTANCE = "resistance";
+    private static final String KEY_LIGHTNEEDS = "lightneeds";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,7 +29,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase DB) {
         String CREATE_PLANTS_TABLE = "CREATE TABLE " + TABLE_PLANTS +
                 "(" + KEY_ID + " INTEGER PRIMARY KEY, " +
-                KEY_NAME + " TEXT" +
+                KEY_NAME + " TEXT," +
+                KEY_SIZE + " TEXT," +
+                KEY_RESISTANCE + " TEXT," +
+                KEY_LIGHTNEEDS + " TEXT" +
                 ")";
         DB.execSQL(CREATE_PLANTS_TABLE);
     }
