@@ -30,6 +30,17 @@
                 android:textSize="10pt"
                 android:textColor="@color/white"
                 android:text="Détail d'une plante"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/arrow_icon"
+                    />
+            </RelativeLayout>
         </LinearLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,7 +52,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            >
+        >
             <TextView
                 android:id="@+id/plant_details_name"
                 android:layout_width="wrap_content"
