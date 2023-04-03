@@ -10,7 +10,7 @@
     <color name="white_semi_opaque">#44FFFFFF</color>
     <color name="light_grey">#D5D5D5</color>
     <color name="yellow">#FFcdd40c</color>
-    <color name="background">#FFdfdfdf</color>
+    <color name="background">#FF212623</color>
     <color name="green">#6B9E6D</color>
     <color name="greenVariant">#6B9E6D</color>
 </resources>

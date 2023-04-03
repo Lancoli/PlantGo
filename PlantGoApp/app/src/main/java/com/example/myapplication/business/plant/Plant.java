@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.business.plant;
 
 public class Plant {
     private int id;

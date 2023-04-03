@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -9,6 +9,13 @@ import android.os.CountDownTimer;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+
+import com.example.myapplication.R;
+import com.example.myapplication.business.plant.Plant;
+import com.example.myapplication.business.plant.PlantLightNeeds;
+import com.example.myapplication.business.plant.PlantResistance;
+import com.example.myapplication.business.plant.PlantSize;
+import com.example.myapplication.storage.DBHandler;
 
 public class SplashActivity extends AppCompatActivity {
     @Override

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".CategoriesFragment"
+    tools:context=".ui.fragments.CategoriesFragment"
     android:orientation="vertical"
     android:layout_gravity="top"
     android:paddingVertical="5px"
@@ -13,7 +13,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".CategoriesFragment"
+        tools:context=".ui.fragments.CategoriesFragment"
         android:orientation="horizontal"
         android:paddingVertical="15px"
     >
