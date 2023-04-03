@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PlantDetailsActivity"
-    android:background="@color/background">
+    tools:context=".activity.PlantDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         android:orientation="vertical">
 
         <LinearLayout
@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
+                android:textColor="@color/white"
                 android:text="Détail d'une plante"/>
         </LinearLayout>
         <RelativeLayout
@@ -45,21 +46,25 @@
                 android:id="@+id/plant_details_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="8pt" />
             <TextView
                 android:id="@+id/plant_details_lightNeeds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="8pt" />
             <TextView
                 android:id="@+id/plant_details_resistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="8pt" />
             <TextView
                 android:id="@+id/plant_details_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="8pt" />
         </LinearLayout>
     </LinearLayout>

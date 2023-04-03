@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity"
-    android:background="@color/background"
 >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="15dp"
+        android:background="@color/background"
     >
         <TextView
             android:id="@+id/pageTitle"
@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Ravi de vous revoir!"
-            android:textColor='@color/black'
+            android:textColor='@color/white'
             android:textSize="16pt" />
 
         <EditText
@@ -28,20 +28,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pseudo_input_placeholder"
+            android:textColorHint="@color/hint"
             android:inputType="text"
             android:lines="1"
+            android:layout_weight="1"
             android:maxLines="1" />
 
         <TextView
             android:id="@+id/trail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-
+            android:text="Je n'ai pas de compte"
             android:onClick="onClickSignUp"
+            android:gravity="center"
             android:textColor="@color/white"
-            android:textSize='15pt' />
+            android:textSize='8pt' />
 
         <Button
             android:id="@+id/connectButton"

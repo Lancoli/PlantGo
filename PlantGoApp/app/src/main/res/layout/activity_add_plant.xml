@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
                 android:text="Ajout de plante"/>
         </LinearLayout>
         <EditText
@@ -37,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pseudo_input_placeholder"
+            android:textColorHint="@color/hint"
             android:inputType="text"
             android:lines="1"
             android:maxLines="1" />
@@ -56,6 +58,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="Ajouter une photo"
+                android:textColor="@color/white"
                 android:textSize="16pt" />
         </LinearLayout>
 
