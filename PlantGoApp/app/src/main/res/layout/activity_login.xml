@@ -20,6 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="Ravi de vous revoir!"
+            android:layout_weight="1"
             android:textColor='@color/white'
             android:textSize="16pt" />
 
@@ -29,9 +30,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/pseudo_input_placeholder"
             android:textColorHint="@color/hint"
+            android:layout_marginBottom="50px"
             android:inputType="text"
             android:lines="1"
-            android:layout_weight="1"
             android:maxLines="1" />
 
         <TextView

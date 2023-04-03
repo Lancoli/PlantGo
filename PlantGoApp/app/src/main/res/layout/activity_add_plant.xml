@@ -43,24 +43,18 @@
             android:lines="1"
             android:maxLines="1" />
 
-        <LinearLayout
-            android:id="@+id/photoButton"
-            android:layout_weight="1"
+        <Button
+            android:id="@+id/takePhotoButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="Ajouter une photo"
-                android:textColor="@color/white"
-                android:textSize="16pt" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="Prendre une photo"
+            />
+        <ImageView
+            android:id="@+id/photoImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
 
         <Button
             android:id="@+id/connectButton"
