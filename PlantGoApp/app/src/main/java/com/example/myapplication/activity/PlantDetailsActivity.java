@@ -3,9 +3,12 @@ package com.example.myapplication.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,11 +39,14 @@ public class PlantDetailsActivity extends AppCompatActivity {
             TextView viewLightNeeds = findViewById(R.id.plant_details_lightNeeds);
             TextView viewResistance = findViewById(R.id.plant_details_resistance);
             TextView viewSize = findViewById(R.id.plant_details_size);
+            ImageView viewImage = (ImageView) findViewById(R.id.plant_details_image);
 
             viewName.setText(plant.getName());
             viewLightNeeds.setText(plant.getLightNeeds());
             viewResistance.setText(plant.getResistance());
             viewSize.setText(plant.getSize());
+            Bitmap imageBitmap = BitmapFactory.decodeFile(plant.getImageUrl());
+            viewImage.setImageBitmap(imageBitmap);
         }
     }
 
