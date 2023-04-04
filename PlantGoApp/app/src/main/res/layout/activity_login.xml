@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/pseudo_input_placeholder"
             android:textColorHint="@color/hint"
+            android:textColor="@color/white"
             android:layout_marginBottom="50px"
             android:inputType="text"
             android:lines="1"
