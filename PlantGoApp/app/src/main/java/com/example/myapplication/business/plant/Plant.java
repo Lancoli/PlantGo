@@ -13,7 +13,7 @@ public class Plant {
         this.name = name;
     }
 
-    public Plant(String id, String size, String resistance, String lightNeeds) {
+    public Plant(String name, String size, String resistance, String lightNeeds) {
         this.name = name;
         this.size = size;
         this.resistance = resistance;

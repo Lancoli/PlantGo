@@ -161,6 +161,7 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
 
         if(!hasError) {
             Plant plant = new Plant(finalName, finalSize, finalResistance, finalLightNeeds);
+            Log.e("> ------------------------------------------------ | postedPlant|", plant.toString());
             DBHandler db = new DBHandler(this);
             db.addPlant(plant);
             this.setResult(RESULT_OK, null);

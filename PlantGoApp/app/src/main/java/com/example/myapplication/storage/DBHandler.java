@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.myapplication.business.plant.Plant;
 
@@ -53,6 +54,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // code to add the new plant
     public void addPlant(Plant plant) {
+        Log.e("> ------------------------------------------- | addPlant |", plant.toString());
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -111,6 +113,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 plant.setResistance(cursor.getString(CURS_RESISTANCE));
 
                 plantList.add(plant);
+                Log.e("> ------------------------------------------- | plant |", plant.toString());
             } while (cursor.moveToNext());
         }
 
@@ -130,10 +133,10 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Deleting single plant
-    public void deletePlant(Plant plant) {
+    public void deletePlant(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PLANTS, KEY_ID + " = ?",
-                new String[] { String.valueOf(plant.getId()) });
+                new String[] { String.valueOf(id) });
         db.close();
     }
 

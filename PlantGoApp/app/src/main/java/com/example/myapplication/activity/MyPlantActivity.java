@@ -19,21 +19,23 @@ import java.util.ArrayList;
 
 public class MyPlantActivity extends AppCompatActivity {
 
-    public static final int RESULT_ADD_PLANT = 5;
+    public static final int RESULT_ADD_PLANT = 1;
+    public static final int RESULT_PLANT_DETAILS = 2;
     ArrayList<Plant> plantsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plants);
-
+        refreshPlantList();
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
         // relie l’adaptateur à la liste
+    }
 
+    public void refreshPlantList() {
         DBHandler db = new DBHandler(this);
         plantsList = db.getAllPlants();
-
 
         ListView liste = (ListView) findViewById(R.id.plants);
         PlantAdapter adapter = new PlantAdapter(plantsList);
@@ -46,7 +48,7 @@ public class MyPlantActivity extends AppCompatActivity {
                 Intent detailsIntent = new Intent(MyPlantActivity.this, PlantDetailsActivity.class);
                 Plant selectedPlant = plantsList.get(idx);
                 detailsIntent.putExtra("plant_id", selectedPlant.getId());
-                startActivity(detailsIntent);
+                startActivityForResult(detailsIntent, RESULT_PLANT_DETAILS);
             }
         });
     }
@@ -61,17 +63,8 @@ public class MyPlantActivity extends AppCompatActivity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
-
-        //rafraichi la liste de plante après l'ajout d'une plante
-        DBHandler db = new DBHandler(this);
-        plantsList = db.getAllPlants();
-
-        ListView liste = (ListView) findViewById(R.id.plants);
-        PlantAdapter adapter = new PlantAdapter(plantsList);
-        liste.setAdapter(adapter);
-
+        refreshPlantList();
     }
 
     class PlantAdapter extends BaseAdapter {

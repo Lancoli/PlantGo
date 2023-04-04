@@ -29,7 +29,6 @@ public class PlantDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         int id = intent.getIntExtra("plant_id", 0);
-        Log.e("id", String.valueOf(id));
         plant = db.getPlant(id);
 
         if (plant != null) {
@@ -50,7 +49,7 @@ public class PlantDetailsActivity extends AppCompatActivity {
     }
 
     public void handleDeletePlant(View view) {
-        db.deletePlant(plant);
+        db.deletePlant(plant.getId());
         onClickGoBack(view);
     }
 }
