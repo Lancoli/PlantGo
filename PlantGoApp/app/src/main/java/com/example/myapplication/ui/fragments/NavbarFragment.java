@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.myapplication.activity.FindPlantsActivity;
-import com.example.myapplication.activity.MyPlantActivity;
+import com.example.myapplication.activity.MyPlantListActivity;
 import com.example.myapplication.R;
 
 /**
@@ -75,7 +75,7 @@ public class NavbarFragment extends Fragment {
 
     public void handleRedirectMyPlants() {
         if (context != null) {
-            Intent intent = new Intent(context, MyPlantActivity.class);
+            Intent intent = new Intent(context, MyPlantListActivity.class);
             startActivity(intent);
         }
     }

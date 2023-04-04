@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication.Permissions;
 import com.example.myapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
     TextView pseudonymeEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
