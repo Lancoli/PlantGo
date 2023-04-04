@@ -104,8 +104,11 @@ public class DBHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Plant plant = new Plant(cursor.getString(1));
-                plant.setId(Integer.parseInt(cursor.getString(0)));
+                Plant plant = new Plant(cursor.getString(CURS_NAME));
+                plant.setId(Integer.parseInt(cursor.getString(CURS_ID)));
+                plant.setSize(cursor.getString(CURS_SIZE));
+                plant.setLightNeeds(cursor.getString(CURS_LIGHT_NEEDS));
+                plant.setResistance(cursor.getString(CURS_RESISTANCE));
 
                 plantList.add(plant);
             } while (cursor.moveToNext());
