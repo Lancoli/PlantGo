@@ -79,4 +79,15 @@ public class Plant {
     public static String[] getSizeOptions() {
         return new String[]{Constants.EMPTY_OPTION, PlantSize.TINY.toString(), PlantSize.SMALL.toString(), PlantSize.MEDIUM.toString(), PlantSize.LARGE.toString(), PlantSize.HUGE.toString()};
     }
+
+    @Override
+    public String toString() {
+        return "Plant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", size='" + size + '\'' +
+                ", resistance='" + resistance + '\'' +
+                ", lightNeeds='" + lightNeeds + '\'' +
+                '}';
+    }
 }
