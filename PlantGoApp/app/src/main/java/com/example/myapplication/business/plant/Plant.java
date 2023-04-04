@@ -13,6 +13,21 @@ public class Plant {
         this.name = name;
     }
 
+    public Plant(String id, String size, String resistance, String lightNeeds) {
+        this.name = name;
+        this.size = size;
+        this.resistance = resistance;
+        this.lightNeeds = lightNeeds;
+    }
+
+    public Plant(int id, String name, String size, String resistance, String lightNeeds) {
+        this.id = id;
+        this.name = name;
+        this.size = size;
+        this.resistance = resistance;
+        this.lightNeeds = lightNeeds;
+    }
+
     public String getName() {
         return name;
     }
@@ -62,6 +77,6 @@ public class Plant {
     }
 
     public static String[] getSizeOptions() {
-        return new String[]{Constants.EMPTY_OPTION,PlantSize.TINY.toString(), PlantSize.SMALL.toString(), PlantSize.MEDIUM.toString(), PlantSize.LARGE.toString(), PlantSize.HUGE.toString()};
+        return new String[]{Constants.EMPTY_OPTION, PlantSize.TINY.toString(), PlantSize.SMALL.toString(), PlantSize.MEDIUM.toString(), PlantSize.LARGE.toString(), PlantSize.HUGE.toString()};
     }
 }

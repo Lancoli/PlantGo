@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ import java.util.Date;
 
 import com.example.myapplication.R;
 import com.example.myapplication.business.plant.Plant;
+import com.example.myapplication.business.utils.ToastMaker;
 import com.example.myapplication.storage.DBHandler;
 
 public class AddPlantActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -46,11 +48,13 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plant);
         initActivity();
-        setupComponents();
-        applyArrayAdapters();
     }
 
-    private void setupComponents() {
+    private void initActivity() {
+        takePhotoButton = (Button) findViewById(R.id.takePhotoButton);
+        photoImage = (ImageView) findViewById(R.id.photoImage);
+        initTakePhoto();
+
         // nom de la plante
         inputName = (EditText)findViewById(R.id.inputName);
 
@@ -65,12 +69,8 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         //recup taille de la plante
         sizeSpinner = (Spinner) findViewById(R.id.spinnerSize);
         sizeSpinner.setOnItemSelectedListener(this);
-    }
 
-    private void initActivity() {
-        takePhotoButton = (Button) findViewById(R.id.takePhotoButton);
-        photoImage = (ImageView) findViewById(R.id.photoImage);
-        initTakePhoto();
+        applyArrayAdapters();
     }
 
     private void initTakePhoto() {
@@ -129,20 +129,43 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         sizeSpinner.setAdapter(adapterSize);
     }
 
-
     public void onClickValidatePlant(View view) {
+        // récupération des valeur des champs
+        boolean hasError = false;
         String finalName = inputName.getText().toString();
+        String finalSize = sizeSpinner.getSelectedItem().toString();
+        String finalLightNeeds = lightNeedsSpinner.getSelectedItem().toString();
+        String finalResistance = resistanceSpinner.getSelectedItem().toString();
+        Log.d("size", finalSize);
+        Log.d("name", finalName);
+        Log.d("resi", finalResistance);
+        Log.d("light", finalLightNeeds);
 
-        if(TextUtils.isEmpty(finalName)) {
-            Toast.makeText(this, "entrez un nom de plante", Toast.LENGTH_SHORT).show();
-            return;
+
+        boolean nameError = ToastMaker.EmptyToastValidator(this, finalName, "entrez un nom de plante");
+        boolean sizeError = ToastMaker.EmptyToastValidator(this, finalSize, "entrez une taille");
+        boolean resistanceError = ToastMaker.EmptyToastValidator(this, finalResistance, "entrez une resistance");
+        boolean lightNeedsError = ToastMaker.EmptyToastValidator(this, finalLightNeeds, "entrez les besoin en lumière");
+
+        Log.d("errorName", String.valueOf(nameError));
+        Log.d("errorSize", String.valueOf(sizeError));
+        Log.d("errorResistance", String.valueOf(resistanceError));
+        Log.d("errorLightNeeds", String.valueOf(lightNeedsError));
+
+        if(nameError) hasError = true;
+        if(sizeError) hasError = true;
+        if(resistanceError) hasError = true;
+        if(lightNeedsError) hasError = true;
+
+        Log.d("formHasError", String.valueOf(hasError));
+
+        if(!hasError) {
+            Plant plant = new Plant(finalName, finalSize, finalResistance, finalLightNeeds);
+            DBHandler db = new DBHandler(this);
+            db.addPlant(plant);
+            this.setResult(RESULT_OK, null);
+            this.finish();
         }
-
-        Plant plant = new Plant(finalName);
-        DBHandler db = new DBHandler(this);
-        db.addPlant(plant);
-        this.setResult(RESULT_OK, null);
-        this.finish();
     }
 
     private boolean checkFields() {

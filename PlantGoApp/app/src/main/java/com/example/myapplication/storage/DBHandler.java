@@ -16,10 +16,15 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "plantsManager";
     private static final String TABLE_PLANTS = "plants";
     private static final String KEY_ID = "id";
+    private static final int CURS_ID = 0;
     private static final String KEY_NAME = "name";
+    private static final int CURS_NAME = 1;
     private static final String KEY_SIZE = "size";
+    private static final int CURS_SIZE = 2;
     private static final String KEY_RESISTANCE = "resistance";
+    private static final int CURS_RESISTANCE = 3;
     private static final String KEY_LIGHTNEEDS = "lightneeds";
+    private static final int CURS_LIGHT_NEEDS = 4;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -67,15 +72,22 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
-                TABLE_PLANTS, new String[]{KEY_ID, KEY_NAME}, KEY_ID + "=?",
+                TABLE_PLANTS, new String[]{KEY_ID, KEY_NAME, KEY_SIZE, KEY_RESISTANCE, KEY_LIGHTNEEDS}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        int pId = Integer.parseInt(cursor.getString(0));
-        String pName = cursor.getString(1);
-        Plant plant = new Plant(pName);
-
+        int pId = Integer.parseInt(cursor.getString(CURS_ID));
+        String pName = cursor.getString(CURS_NAME);
+        String pSize = cursor.getString(CURS_SIZE);
+        String pResistance = cursor.getString(CURS_RESISTANCE);
+        String pLightNeeds = cursor.getString(CURS_LIGHT_NEEDS);
+        Plant plant = new Plant(
+                pId,
+                pName,
+                pSize,
+                pResistance,
+                pLightNeeds);
 
         return plant;
     }
