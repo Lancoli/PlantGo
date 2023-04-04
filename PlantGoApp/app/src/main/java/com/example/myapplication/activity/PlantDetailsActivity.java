@@ -10,8 +10,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.business.plant.Plant;
+import com.example.myapplication.storage.DBHandler;
 
 public class PlantDetailsActivity extends AppCompatActivity {
+    private Plant plant;
+    private DBHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,24 +25,32 @@ public class PlantDetailsActivity extends AppCompatActivity {
     }
 
     public void initPlantDetails() {
+        db = new DBHandler(this);
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        String lightNeeds = intent.getStringExtra("lightNeeds");
-        String resistance = intent.getStringExtra("resistance");
-        String size = intent.getStringExtra("size");
 
-        TextView viewName = findViewById(R.id.plant_details_name);
-        TextView viewLightNeeds = findViewById(R.id.plant_details_lightNeeds);
-        TextView viewResistance = findViewById(R.id.plant_details_resistance);
-        TextView viewSize = findViewById(R.id.plant_details_size);
+        int id = intent.getIntExtra("plant_id", 0);
+        Log.e("id", String.valueOf(id));
+        plant = db.getPlant(id);
 
-        viewName.setText(name);
-        viewLightNeeds.setText(lightNeeds);
-        viewResistance.setText(resistance);
-        viewSize.setText(size);
+        if (plant != null) {
+            TextView viewName = findViewById(R.id.plant_details_name);
+            TextView viewLightNeeds = findViewById(R.id.plant_details_lightNeeds);
+            TextView viewResistance = findViewById(R.id.plant_details_resistance);
+            TextView viewSize = findViewById(R.id.plant_details_size);
+
+            viewName.setText(plant.getName());
+            viewLightNeeds.setText(plant.getLightNeeds());
+            viewResistance.setText(plant.getResistance());
+            viewSize.setText(plant.getSize());
+        }
     }
 
     public void onClickGoBack(View view) {
         this.finish();
+    }
+
+    public void handleDeletePlant(View view) {
+        db.deletePlant(plant);
+        onClickGoBack(view);
     }
 }

@@ -68,7 +68,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // code to get the single plant
-    Plant getPlant(int id) {
+    public Plant getPlant(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
