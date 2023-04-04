@@ -37,7 +37,7 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     Spinner lightNeedsSpinner;
     Spinner resistanceSpinner;
     Spinner sizeSpinner;
-    private static final int BACKUP_TAKE_PHOTO = 1;
+    private static final int BACKUP_TAKE_PHOTO = 2;
     private Button takePhotoButton;
     private ImageView photoImage;
     private String photoPath = null;
@@ -118,7 +118,7 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // cas de la prise de photo
-        if (requestCode==BACKUP_TAKE_PHOTO && resultCode==RESULT_OK) {
+        if (requestCode==BACKUP_TAKE_PHOTO) {
             Bitmap imageBitmap = BitmapFactory.decodeFile(photoPath);
             photoImage.setImageBitmap(imageBitmap);
         }
