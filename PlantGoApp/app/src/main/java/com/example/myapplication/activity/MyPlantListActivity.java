@@ -17,7 +17,7 @@ import com.example.myapplication.storage.DBHandler;
 
 import java.util.ArrayList;
 
-public class MyPlantActivity extends AppCompatActivity {
+public class MyPlantListActivity extends AppCompatActivity {
 
     public static final int RESULT_ADD_PLANT = 1;
     public static final int RESULT_PLANT_DETAILS = 2;
@@ -26,7 +26,7 @@ public class MyPlantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_plants);
+        setContentView(R.layout.activity_my_plant_list);
         refreshPlantList();
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
@@ -45,7 +45,7 @@ public class MyPlantActivity extends AppCompatActivity {
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int idx, long l) {
-                Intent detailsIntent = new Intent(MyPlantActivity.this, PlantDetailsActivity.class);
+                Intent detailsIntent = new Intent(MyPlantListActivity.this, PlantDetailsActivity.class);
                 Plant selectedPlant = plantsList.get(idx);
                 detailsIntent.putExtra("plant_id", selectedPlant.getId());
                 startActivityForResult(detailsIntent, RESULT_PLANT_DETAILS);
@@ -58,7 +58,7 @@ public class MyPlantActivity extends AppCompatActivity {
     }
 
     public void onClickAddPlant(View view) {
-        Intent detailsIntent = new Intent(MyPlantActivity.this, AddPlantActivity.class);
+        Intent detailsIntent = new Intent(MyPlantListActivity.this, AddPlantActivity.class);
         startActivityForResult(detailsIntent, RESULT_ADD_PLANT);
     }
 

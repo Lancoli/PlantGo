@@ -44,7 +44,7 @@
             android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MyPlantActivity"
+            android:name=".activity.MyPlantListActivity"
             android:exported="false" />
         <activity
             android:name=".activity.SplashActivity"

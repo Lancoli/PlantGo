@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.example.myapplication.Permissions;
 import com.example.myapplication.R;
 import com.example.myapplication.business.plant.Plant;
 import com.example.myapplication.business.utils.ToastMaker;
@@ -42,6 +43,8 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     private String photoPath = null;
 
     EditText inputName;
+
+    Permissions permission = new Permissions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,17 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void handleTakePhoto() {
+        //gestion de la permission camera
+        boolean hasCameraPermission = permission.hasCameraPermission(this);
+
+        if (!hasCameraPermission) {
+            permission.askCameraPermissions(this);
+        } else {
+            openCameraIntent();
+        }
+    }
+
+    private void openCameraIntent() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(getPackageManager()) != null) {
             String time = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -103,6 +117,7 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // cas de la prise de photo
         if (requestCode==BACKUP_TAKE_PHOTO && resultCode==RESULT_OK) {
             Bitmap imageBitmap = BitmapFactory.decodeFile(photoPath);
             photoImage.setImageBitmap(imageBitmap);
@@ -148,10 +163,6 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         boolean lightNeedsError = ToastMaker.EmptyToastValidator(this, finalLightNeeds, "entrez les besoin en lumière");
         boolean imageUrlError = ToastMaker.EmptyToastValidator(this, photoPath, "prenez une photo de la plante");
 
-        Log.d("errorName", String.valueOf(nameError));
-        Log.d("errorSize", String.valueOf(sizeError));
-        Log.d("errorResistance", String.valueOf(resistanceError));
-        Log.d("errorLightNeeds", String.valueOf(lightNeedsError));
 
         if(nameError) hasError = true;
         else if(sizeError) hasError = true;
@@ -171,17 +182,9 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         }
     }
 
-    private boolean checkFields() {
-        boolean isValid = true;
-
-        return isValid;
-    }
-
     public void onClickGoBack(View view) {
         this.finish();
     }
-
-
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -191,6 +194,12 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        handleTakePhoto();
     }
 
 }

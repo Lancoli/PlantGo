@@ -37,13 +37,14 @@
             android:id="@+id/inputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pseudo_input_placeholder"
+            android:hint="@string/plant_name_input_placeholder"
             android:textColorHint="@color/hint"
+            android:textColor="@color/white"
             android:inputType="text"
             android:lines="1"
             android:maxLines="1" />
 
-                    //Besoins en lumière
+        //Besoins en lumière
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
