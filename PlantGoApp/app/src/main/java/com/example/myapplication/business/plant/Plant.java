@@ -8,24 +8,27 @@ public class Plant {
     private String size;
     private String resistance;
     private String lightNeeds;
+    private String imageUrl;
 
     public Plant(String name) {
         this.name = name;
     }
 
-    public Plant(String name, String size, String resistance, String lightNeeds) {
+    public Plant(String name, String size, String resistance, String lightNeeds, String imageUrl) {
         this.name = name;
         this.size = size;
         this.resistance = resistance;
         this.lightNeeds = lightNeeds;
+        this.imageUrl = imageUrl;
     }
 
-    public Plant(int id, String name, String size, String resistance, String lightNeeds) {
+    public Plant(int id, String name, String size, String resistance, String lightNeeds, String imageUrl) {
         this.id = id;
         this.name = name;
         this.size = size;
         this.resistance = resistance;
         this.lightNeeds = lightNeeds;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -60,6 +63,10 @@ public class Plant {
         this.lightNeeds = lightNeeds;
     }
 
+    public String getImageUrl() { return imageUrl; }
+
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
     public int getId() {
         return id;
     }
@@ -88,6 +95,7 @@ public class Plant {
                 ", size='" + size + '\'' +
                 ", resistance='" + resistance + '\'' +
                 ", lightNeeds='" + lightNeeds + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }

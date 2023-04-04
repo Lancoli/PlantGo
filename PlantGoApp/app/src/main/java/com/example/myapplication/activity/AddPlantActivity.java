@@ -140,12 +140,13 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         Log.d("name", finalName);
         Log.d("resi", finalResistance);
         Log.d("light", finalLightNeeds);
-
+        Log.d("image", photoPath);
 
         boolean nameError = ToastMaker.EmptyToastValidator(this, finalName, "entrez un nom de plante");
         boolean sizeError = ToastMaker.EmptyToastValidator(this, finalSize, "entrez une taille");
         boolean resistanceError = ToastMaker.EmptyToastValidator(this, finalResistance, "entrez une resistance");
         boolean lightNeedsError = ToastMaker.EmptyToastValidator(this, finalLightNeeds, "entrez les besoin en lumière");
+        boolean imageUrlError = ToastMaker.EmptyToastValidator(this, photoPath, "prenez une photo de la plante");
 
         Log.d("errorName", String.valueOf(nameError));
         Log.d("errorSize", String.valueOf(sizeError));
@@ -153,15 +154,16 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         Log.d("errorLightNeeds", String.valueOf(lightNeedsError));
 
         if(nameError) hasError = true;
-        if(sizeError) hasError = true;
-        if(resistanceError) hasError = true;
-        if(lightNeedsError) hasError = true;
+        else if(sizeError) hasError = true;
+        else if(resistanceError) hasError = true;
+        else if(lightNeedsError) hasError = true;
+        else if(imageUrlError) hasError = true;
 
         Log.d("formHasError", String.valueOf(hasError));
 
         if(!hasError) {
-            Plant plant = new Plant(finalName, finalSize, finalResistance, finalLightNeeds);
-            Log.e("> ------------------------------------------------ | postedPlant|", plant.toString());
+            Plant plant = new Plant(finalName, finalSize, finalResistance, finalLightNeeds, photoPath);
+            Log.e("> ------------------------------------------------ | postedPlant |", plant.toString());
             DBHandler db = new DBHandler(this);
             db.addPlant(plant);
             this.setResult(RESULT_OK, null);

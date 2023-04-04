@@ -26,6 +26,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int CURS_RESISTANCE = 3;
     private static final String KEY_LIGHTNEEDS = "lightneeds";
     private static final int CURS_LIGHT_NEEDS = 4;
+    private static final String KEY_IMAGE_URL = "imageUrl";
+    private static final int CURS_IMAGE_URL = 5;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +40,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 KEY_NAME + " TEXT," +
                 KEY_SIZE + " TEXT," +
                 KEY_RESISTANCE + " TEXT," +
-                KEY_LIGHTNEEDS + " TEXT" +
+                KEY_LIGHTNEEDS + " TEXT," +
+                KEY_IMAGE_URL + " TEXT" +
                 ")";
         DB.execSQL(CREATE_PLANTS_TABLE);
     }
@@ -62,6 +65,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_SIZE, plant.getSize()); // Plant Size
         values.put(KEY_RESISTANCE, plant.getResistance()); // Plant Resistance
         values.put(KEY_LIGHTNEEDS, plant.getLightNeeds()); // Plant LightNeeds
+        values.put(KEY_IMAGE_URL, plant.getImageUrl()); // Plant ImageUrl
 
         // Inserting Row
         db.insert(TABLE_PLANTS, null, values);
@@ -74,7 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(
-                TABLE_PLANTS, new String[]{KEY_ID, KEY_NAME, KEY_SIZE, KEY_RESISTANCE, KEY_LIGHTNEEDS}, KEY_ID + "=?",
+                TABLE_PLANTS, new String[]{KEY_ID, KEY_NAME, KEY_SIZE, KEY_RESISTANCE, KEY_LIGHTNEEDS, KEY_IMAGE_URL}, KEY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -84,12 +88,14 @@ public class DBHandler extends SQLiteOpenHelper {
         String pSize = cursor.getString(CURS_SIZE);
         String pResistance = cursor.getString(CURS_RESISTANCE);
         String pLightNeeds = cursor.getString(CURS_LIGHT_NEEDS);
+        String pImageUrl = cursor.getString(CURS_IMAGE_URL);
         Plant plant = new Plant(
                 pId,
                 pName,
                 pSize,
                 pResistance,
-                pLightNeeds);
+                pLightNeeds,
+                pImageUrl);
 
         return plant;
     }
@@ -111,6 +117,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 plant.setSize(cursor.getString(CURS_SIZE));
                 plant.setLightNeeds(cursor.getString(CURS_LIGHT_NEEDS));
                 plant.setResistance(cursor.getString(CURS_RESISTANCE));
+                plant.setImageUrl(cursor.getString(CURS_IMAGE_URL));
 
                 plantList.add(plant);
                 Log.e("> ------------------------------------------- | plant |", plant.toString());
@@ -126,6 +133,10 @@ public class DBHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, plant.getName());
+        values.put(KEY_SIZE, plant.getSize());
+        values.put(KEY_LIGHTNEEDS, plant.getLightNeeds());
+        values.put(KEY_RESISTANCE, plant.getResistance());
+        values.put(KEY_IMAGE_URL, plant.getImageUrl());
 
         // updating row
         return db.update(TABLE_PLANTS, values, KEY_ID + " = ?",
