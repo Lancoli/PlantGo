@@ -11,23 +11,55 @@
     android:background="@color/green"
     android:padding="15px"
 >
-    <ImageButton
-        android:id="@+id/findPlantsAction"
+    <LinearLayout
+        android:id="@+id/goToMyPlantList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/plant"
+            android:contentDescription="liste des plantes"
+            android:background="@color/green"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Mes plantes"
+            android:textColor="@color/white">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deconnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        >
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:src="@drawable/help_icon"
-        android:contentDescription="plants"
+        android:contentDescription="action de deconnexion"
         android:background="@color/green"
         android:layout_weight="1"
     />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Déconnexion"
+            android:textColor="@color/white">
 
-    <ImageButton
-        android:id="@+id/myPlantsAction"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:src="@drawable/plant"
-        android:contentDescription="shopping basket"
-        android:background="@color/green"
-        android:layout_weight="1"
-    />
+        </TextView>
+    </LinearLayout>
+
 </LinearLayout>

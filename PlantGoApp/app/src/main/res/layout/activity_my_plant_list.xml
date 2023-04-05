@@ -59,11 +59,9 @@
 
                 <Button
                     android:id="@+id/connectButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:onClick="onClickAddPlant"
                     android:text="Ajouter une plante"
-                    android:backgroundTint="@color/green"
+                    style="@style/MyPrimaryButton"
                     />
             </RelativeLayout>
         </LinearLayout>

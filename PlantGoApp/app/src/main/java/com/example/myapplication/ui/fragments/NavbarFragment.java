@@ -9,9 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
-import com.example.myapplication.activity.FindPlantsActivity;
 import com.example.myapplication.activity.MyPlantListActivity;
 import com.example.myapplication.R;
 
@@ -53,12 +52,12 @@ public class NavbarFragment extends Fragment {
 
         context = getContext();
 
-        ImageButton findPlantsAction = view.findViewById(R.id.findPlantsAction);
+        LinearLayout findPlantsAction = view.findViewById(R.id.deconnexion);
         findPlantsAction.setOnClickListener(event -> {
-            handleRedirectFindPlants();
+            handleDisconnect();
         });
 
-        ImageButton myPlantsAction = view.findViewById(R.id.myPlantsAction);
+        LinearLayout myPlantsAction = view.findViewById(R.id.goToMyPlantList);
         myPlantsAction.setOnClickListener(event -> {
             handleRedirectMyPlants();
         });
@@ -66,11 +65,8 @@ public class NavbarFragment extends Fragment {
         return view;
     }
 
-    public void handleRedirectFindPlants() {
-        if (context != null) {
-            Intent intent = new Intent(context, FindPlantsActivity.class);
-            startActivity(intent);
-        }
+    public void handleDisconnect() {
+        getActivity().finish();
     }
 
     public void handleRedirectMyPlants() {

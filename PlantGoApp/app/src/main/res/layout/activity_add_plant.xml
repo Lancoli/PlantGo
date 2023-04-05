@@ -46,55 +46,76 @@
             style="@style/MyTextInput"
             />
         </LinearLayout>
-
-        //Besoins lumineux
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px"/>
         <LinearLayout
             style="@style/LinearFlexVertical">
-            <TextView
-                android:text="Besoin lumineux"
-                style="@style/MyInputLabel"/>
-            <Spinner
-                android:id="@+id/spinnerLightNeeds"
-                style="@style/MySpinner"
-                />
-        </LinearLayout>
 
-        //Resitance de la plante
-        <LinearLayout
-            style="@style/LinearFlexVertical">
-            <TextView
-                android:text="Résistance"
-                style="@style/MyInputLabel"/>
-            <Spinner
-                android:id="@+id/spinnerResistance"
-                style="@style/MySpinner"
-                 />
-        </LinearLayout>
+            <LinearLayout
+                style="@style/LinearFlexHorizontal">
+                <LinearLayout
+                    android:layout_weight="1"
+                    style="@style/LinearFlexVertical">
+                    //Besoins lumineux
+                    <LinearLayout
+                        style="@style/LinearFlexVertical">
+                        <TextView
+                            android:text="Besoin lumineux"
+                            style="@style/MyInputLabel"/>
+                        <Spinner
+                            android:id="@+id/spinnerLightNeeds"
+                            style="@style/MySpinner"
+                            />
+                    </LinearLayout>
 
-        //Taille de la plante
-        <LinearLayout
-            style="@style/LinearFlexVertical">
-            <TextView
-                android:text="Taille"
-                style="@style/MyInputLabel"/>
-            <Spinner
-                android:id="@+id/spinnerSize"
-                style="@style/MySpinner"
-                />
+                    //Resitance de la plante
+                    <LinearLayout
+                        style="@style/LinearFlexVertical">
+                        <TextView
+                            android:text="Résistance"
+                            style="@style/MyInputLabel"/>
+                        <Spinner
+                            android:id="@+id/spinnerResistance"
+                            style="@style/MySpinner"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:layout_weight="1"
+                    style="@style/LinearFlexVertical">
+                    //Taille de la plante
+                    <LinearLayout
+                        style="@style/LinearFlexVertical">
+                        <TextView
+                            android:text="Taille"
+                            style="@style/MyInputLabel"/>
+                        <Spinner
+                            android:id="@+id/spinnerSize"
+                            style="@style/MySpinner"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px"/>
         <Button
             android:id="@+id/takePhotoButton"
             android:text="Prendre une photo"
             style="@style/MyPrimaryButton"
-            />
+        />
         <ImageView
             android:id="@+id/photoImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:rotation="90"
-            android:paddingVertical="65dp"
+            android:paddingVertical="30dp"
             />
 
         <Button

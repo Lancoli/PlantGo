@@ -26,13 +26,19 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/primary_button</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="LinearFlexVertical">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LinearFlexHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 
     <style name="MyInputLabel">
@@ -48,7 +54,7 @@
         <item name="android:prompt">@string/spinner_hint</item>
         <item name="android:textColor">@color/background</item>
         <item name="android:layout_marginBottom">6dp</item>
-        <item name="android:padding">15dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
     <style name="MyTextInput">
@@ -58,7 +64,7 @@
         <item name="android:background">@drawable/rounded_box</item>
         <item name="android:textColor">@color/background</item>
         <item name="android:layout_marginBottom">6dp</item>
-        <item name="android:padding">15dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
     <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
