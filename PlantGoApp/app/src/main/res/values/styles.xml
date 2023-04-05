@@ -21,6 +21,15 @@
         <item name="android:layout_alignParentBottom">true</item>
     </style>
 
+    <style name="MySpinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/background</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
     <style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:colorPrimary">@color/green</item>
