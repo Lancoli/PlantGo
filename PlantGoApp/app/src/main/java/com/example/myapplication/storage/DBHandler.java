@@ -100,7 +100,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return plant;
     }
 
-    // code to get all contacts in a list view
+    // code to get all plants in a list view
     public ArrayList<Plant> getAllPlants() {
         ArrayList<Plant> plantList = new ArrayList<Plant>();
         // Select All Query
@@ -151,7 +151,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    // Getting contacts Count
+    // Getting plant Count
     public int getPlantsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_PLANTS;
         SQLiteDatabase db = this.getReadableDatabase();
