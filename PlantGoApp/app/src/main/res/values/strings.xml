@@ -2,13 +2,14 @@
     <string name="app_name">PlantGo</string>
     <string name="help_icon_description">Aide</string>
     <string name="climate_map_description">Carte graphique des climats</string>
-    <string name="pseudo_input_placeholder">Pseudonyme</string>
-    <string name="plant_name_input_placeholder">Nom de la plante</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="pseudo_input_placeholder">Entrer votre pseudo...</string>
+    <string name="plant_name_input_placeholder">Entrez un nom de plante...</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="spinner_hint">Séléctionnez une valeur</string>
+
 
 </resources>

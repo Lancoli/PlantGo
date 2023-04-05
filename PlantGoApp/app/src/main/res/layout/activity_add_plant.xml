@@ -26,89 +26,67 @@
                 android:onClick="onClickGoBack"/>
 
             <TextView
+                android:text="Ajouter une plante"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="10pt"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/white"
-                android:text="Ajout de plante"/>
+                />
         </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearFlexVertical">
+            <TextView
+                android:text="Nom"
+                style="@style/MyInputLabel"/>
         <EditText
             android:id="@+id/inputName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="@string/plant_name_input_placeholder"
-            android:textColorHint="@color/hint"
-            android:textColor="@color/white"
-            android:inputType="text"
-            android:lines="1"
-            android:maxLines="1" />
+            style="@style/MyTextInput"
+            />
+        </LinearLayout>
 
-        //Besoins en lumière
+        //Besoins lumineux
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            style="@style/LinearFlexVertical">
             <TextView
-                android:text="Besoin en lumière"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:text="Besoin lumineux"
+                style="@style/MyInputLabel"/>
             <Spinner
                 android:id="@+id/spinnerLightNeeds"
                 style="@style/MySpinner"
                 />
-
         </LinearLayout>
 
         //Resitance de la plante
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            style="@style/LinearFlexVertical">
             <TextView
                 android:text="Résistance"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                style="@style/MyInputLabel"/>
             <Spinner
                 android:id="@+id/spinnerResistance"
                 style="@style/MySpinner"
                  />
-
         </LinearLayout>
 
         //Taille de la plante
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            style="@style/LinearFlexVertical">
             <TextView
                 android:text="Taille"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                style="@style/MyInputLabel"/>
             <Spinner
                 android:id="@+id/spinnerSize"
                 style="@style/MySpinner"
                 />
-
         </LinearLayout>
 
         <Button
             android:id="@+id/takePhotoButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Prendre une photo"
+            style="@style/MyPrimaryButton"
             />
         <ImageView
             android:id="@+id/photoImage"
@@ -121,12 +99,10 @@
 
         <Button
             android:id="@+id/connectButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickValidatePlant"
             android:text="Enregistrer"
-            android:background="@drawable/button"
+            android:onClick="onClickValidatePlant"
             android:layout_gravity="bottom"
+            style="@style/MyPrimaryButton"
             />
     </LinearLayout>
 

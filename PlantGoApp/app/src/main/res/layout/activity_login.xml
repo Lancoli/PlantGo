@@ -13,48 +13,54 @@
         android:padding="15dp"
         android:background="@color/background"
     >
-        <TextView
-            android:id="@+id/pageTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Ravi de vous revoir!"
-            android:layout_weight="1"
-            android:textColor='@color/white'
-            android:textSize="16pt" />
 
-        <EditText
-            android:id="@+id/pseudo_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/pseudo_input_placeholder"
-            android:textColorHint="@color/hint"
-            android:textColor="@color/white"
-            android:layout_marginBottom="50px"
-            android:inputType="text"
-            android:lines="1"
-            android:maxLines="1" />
 
-        <TextView
-            android:id="@+id/trail"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Je n'ai pas de compte"
-            android:onClick="onClickSignUp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize='8pt' />
+            android:paddingHorizontal="36dp">
 
-        <Button
-            android:id="@+id/connectButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickSignUp"
-            android:text="Se connecter"
-            android:backgroundTint="@color/green"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Connexion"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:layout_marginBottom="16dp"/>
+
+
+            <LinearLayout
+                style="@style/LinearFlexVertical">
+                <EditText
+                    android:id="@+id/pseudo_input"
+                    android:hint="@string/pseudo_input_placeholder"
+                    android:layout_marginBottom="8dp"
+                    style="@style/MyTextInput"
+                />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/connectButton"
+                android:onClick="onClickSignUp"
+                android:text="Se connecter"
+                style="@style/MyPrimaryButton"
+            />
+
+            <TextView
+                android:id="@+id/trail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Je n'ai pas de compte"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:textSize='8pt' />
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
