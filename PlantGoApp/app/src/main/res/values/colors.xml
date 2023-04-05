@@ -13,5 +13,6 @@
     <color name="background">#FF212623</color>
     <color name="hint">#CCCCCC</color>
     <color name="green">#6B9E6D</color>
+    <color name="greenDark">#467648</color>
     <color name="greenVariant">#6B9E6D</color>
 </resources>
