@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".activity.HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_background"
+            android:scaleType="centerCrop"
+            />
+    </RelativeLayout>
     <FrameLayout
         android:id="@+id/navbar"
         style="@style/Navbar" />
