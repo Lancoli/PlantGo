@@ -14,15 +14,16 @@ Eléments clés du projet:
 - Fake Login (il suffit d'entrer n'importe quel pseudo)
 - Navbar (fragment)
 - Redirections simples (vers le listing de plante et le FakeLogin)
-- Liste de ses plantes avec items customisés
+- Liste de plantes
+- Items de listing customisés
 - Ajout de plante
 - Détail d'une plante
 - Suppression d'une plante
 - Utilisation de la camera et système basique de permissions
 - Rafraichissement du listing de plante
-- utilisation des styles et de drawables pour customisation d'élément
+- Utilisation des styles et de drawables pour customisation d'élément
 - Création de classes utilitaires, d'énumération
 - Gestion des erreurs de champs non rempli et affichage des erreurs
-- Utilisation de spinners
+- Population de spinners
 - Persistance avec SQLite
 
