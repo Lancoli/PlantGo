@@ -2,41 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/card_item"
     >
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="15px"
-        android:paddingVertical="5px"
-        android:layout_centerHorizontal="true">
-
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:paddingHorizontal="15px">
+        <ImageView
+            android:id="@+id/plant_img"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:rotation="90"
+            />
         <TextView
             android:id="@+id/plant_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
             android:textSize="8pt"
-            android:textColor='@color/white' />
+            android:textColor='@color/white'
+            android:gravity="center_vertical"
+            android:paddingVertical="30px"
+            />
 
         <TextView
             android:id="@+id/plant_light_need"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textSize="16pt"
-            android:textColor='@color/white' />
-        <ImageView
-
-            android:id="@+id/plant_img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_weight="1"
+            android:textSize="8pt"
+            android:textColor='@color/white'
+            android:gravity="center_vertical"
+            android:paddingVertical="30px"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

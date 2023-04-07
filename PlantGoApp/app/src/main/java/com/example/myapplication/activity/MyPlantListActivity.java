@@ -3,17 +3,23 @@ package com.example.myapplication.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.business.plant.Plant;
 import com.example.myapplication.storage.DBHandler;
+import com.example.myapplication.ui.fragments.NavbarFragment;
+import com.example.myapplication.ui.fragments.CategoriesFragment;
 
 import java.util.ArrayList;
 
@@ -27,6 +33,12 @@ public class MyPlantListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant_list);
+
+        CategoriesFragment categoriesFragment = new CategoriesFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.my_plant_list_categories, categoriesFragment)
+                .commit();
+
         refreshPlantList();
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
@@ -82,7 +94,13 @@ public class MyPlantListActivity extends AppCompatActivity {
             View itemView = getLayoutInflater().inflate(R.layout.plant_list_item, null);
 
             TextView plantName = (TextView) itemView.findViewById(R.id.plant_name);
+            TextView plantLightNeed = (TextView) itemView.findViewById(R.id.plant_light_need);
+            ImageView plantImage = (ImageView) itemView.findViewById(R.id.plant_img);
+
+            Bitmap imageBitmap = BitmapFactory.decodeFile(plant.getImageUrl());
             plantName.setText(plant.getName());
+            plantLightNeed.setText(plant.getLightNeeds());
+            plantImage.setImageBitmap(imageBitmap);
             return itemView;
         }
 
