@@ -18,10 +18,10 @@ Eléments clés du projet:
 - Ajout de plante
 - Détail d'une plante
 - Suppression d'une plante
-- utilisation de la camera et système basique de permissions
+- Utilisation de la camera et système basique de permissions
 - Rafraichissement du listing de plante
 - utilisation des styles et de drawables pour customisation d'élément
-- Création de classes utilitaires
+- Création de classes utilitaires, d'énumération
 - Gestion des erreurs de champs non rempli et affichage des erreurs
 - Utilisation de spinners
 - Persistance avec SQLite
