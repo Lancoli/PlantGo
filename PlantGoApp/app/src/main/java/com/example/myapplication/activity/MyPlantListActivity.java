@@ -26,17 +26,14 @@ public class MyPlantListActivity extends AppCompatActivity {
     public static final int RESULT_ADD_PLANT = 1;
     public static final int RESULT_PLANT_DETAILS = 2;
     ArrayList<Plant> plantsList = new ArrayList<>();
+    ListView plantListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant_list);
-
-        CategoriesFragment categoriesFragment = new CategoriesFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.my_plant_list_categories, categoriesFragment)
-                .commit();
-
+        plantListView = (ListView) findViewById(R.id.plants);
         refreshPlantList();
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
@@ -47,12 +44,22 @@ public class MyPlantListActivity extends AppCompatActivity {
         DBHandler db = new DBHandler(this);
         plantsList = db.getAllPlants();
 
-        ListView liste = (ListView) findViewById(R.id.plants);
+        if(plantsList.size() > 0) {
+            //on ajoute le header de liste
+            addPlantListHeaderFragment();
+            //on construit la liste d'item
+            buildPlantListItems();
+        } else {
+
+        }
+    }
+
+    private void buildPlantListItems() {
         PlantAdapter adapter = new PlantAdapter(plantsList);
-        liste.setAdapter(adapter);
+        plantListView.setAdapter(adapter);
 
         //On click event
-        liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        plantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int idx, long l) {
                 Intent detailsIntent = new Intent(MyPlantListActivity.this, PlantDetailsActivity.class);
@@ -62,6 +69,14 @@ public class MyPlantListActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void addPlantListHeaderFragment() {
+        CategoriesFragment categoriesFragment = new CategoriesFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.my_plant_list_categories, categoriesFragment)
+                .commit();
+    }
+
 
     public void onClickGoBack(View view) {
         this.finish();
