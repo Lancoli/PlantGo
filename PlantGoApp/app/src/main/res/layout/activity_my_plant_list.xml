@@ -7,13 +7,14 @@
     tools:context=".activity.MyPlantListActivity"
     android:background="@color/background">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/page_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -33,45 +34,64 @@
                 android:layout_gravity="center_vertical"
                 android:text="Mes plantes"/>
         </LinearLayout>
-        <RelativeLayout
+
+        <Button
+            android:id="@+id/addPlantButton"
+            android:onClick="onClickAddPlant"
+            android:text="Ajouter une plante"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="12dp"
+            style="@style/MyPrimaryButton"
+            />
+
+        <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/light_grey">
-        </RelativeLayout>
-        <FrameLayout
+        </View>
+        <LinearLayout
+            android:id="@+id/header_listing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:id="@+id/my_plant_list_categories" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ListView
-                android:id="@+id/plants"
-                android:layout_height="match_parent"
-                android:padding="30px"
-                android:layout_width="match_parent"
-                android:layout_weight="0.8"
-                android:divider="#00000000"
-                android:dividerHeight="8dp">
-            </ListView>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_below="@id/page_header"
+            >
+            <TextView
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="15dp"
-                android:layout_marginBottom="20dp">
-
-                <Button
-                    android:id="@+id/connectButton"
-                    android:onClick="onClickAddPlant"
-                    android:text="Ajouter une plante"
-                    style="@style/MyPrimaryButton"
-                    />
-            </RelativeLayout>
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nom"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="25dp"
+                android:id="@+id/selectDifficulty"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="25dp"
+                android:text="Besoin en lumière"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:id="@+id/selectLight"
+                />
         </LinearLayout>
-
-    </LinearLayout>
+        <ListView
+            android:id="@+id/plants"
+            android:layout_height="match_parent"
+            android:padding="30px"
+            android:layout_width="match_parent"
+            android:layout_weight="0.8"
+            android:divider="#00000000"
+            android:dividerHeight="8dp"
+            android:layout_below="@id/header_listing"
+            android:layout_above="@id/addPlantButton">
+        </ListView>
+    </RelativeLayout>
 </RelativeLayout>

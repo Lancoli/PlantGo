@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class MyPlantListActivity extends AppCompatActivity {
     public static final int RESULT_PLANT_DETAILS = 2;
     ArrayList<Plant> plantsList = new ArrayList<>();
     ListView plantListView;
+    LinearLayout headerList;
+
 
 
     @Override
@@ -34,6 +37,7 @@ public class MyPlantListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_plant_list);
         plantListView = (ListView) findViewById(R.id.plants);
+        headerList = (LinearLayout) findViewById(R.id.header_listing);
         refreshPlantList();
         // recherche dans le gabarit l’objet ListView (à partir de son id)
         // créé une instance de notre adaptateur (cf point 5)
@@ -43,14 +47,13 @@ public class MyPlantListActivity extends AppCompatActivity {
     public void refreshPlantList() {
         DBHandler db = new DBHandler(this);
         plantsList = db.getAllPlants();
+        buildPlantListItems();
 
+        // visibilité du header de liste
         if(plantsList.size() > 0) {
-            //on ajoute le header de liste
-            addPlantListHeaderFragment();
-            //on construit la liste d'item
-            buildPlantListItems();
+            headerList.setVisibility(View.VISIBLE);
         } else {
-
+            headerList.setVisibility(View.GONE);
         }
     }
 
@@ -68,13 +71,6 @@ public class MyPlantListActivity extends AppCompatActivity {
                 startActivityForResult(detailsIntent, RESULT_PLANT_DETAILS);
             }
         });
-    }
-
-    private void addPlantListHeaderFragment() {
-        CategoriesFragment categoriesFragment = new CategoriesFragment();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.my_plant_list_categories, categoriesFragment)
-                .commit();
     }
 
 
