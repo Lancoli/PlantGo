@@ -1,6 +1,6 @@
-package com.example.myapplication.business.plant;
+package com.example.myapplication.logic.plant;
 
-import com.example.myapplication.business.utils.Constants;
+import com.example.myapplication.logic.utils.Constants;
 
 public class Plant {
     private int id;

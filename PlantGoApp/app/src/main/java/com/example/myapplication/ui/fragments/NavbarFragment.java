@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.myapplication.activity.MyPlantListActivity;
 import com.example.myapplication.R;
@@ -49,20 +51,30 @@ public class NavbarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navbar, container, false);
-
         context = getContext();
+        initNavItemOnClick(view);
+        return view;
+    }
 
-        LinearLayout findPlantsAction = view.findViewById(R.id.deconnexion);
-        findPlantsAction.setOnClickListener(event -> {
+    public void initNavItemOnClick(View view) {
+        ImageView deconnexion_icon = view.findViewById(R.id.deconnexion_icon);
+        TextView deconnexion_text = view.findViewById(R.id.deconnexion_text);
+        deconnexion_icon.setOnClickListener(event -> {
+            handleDisconnect();
+        });
+        deconnexion_text.setOnClickListener(event -> {
             handleDisconnect();
         });
 
-        LinearLayout myPlantsAction = view.findViewById(R.id.goToMyPlantList);
-        myPlantsAction.setOnClickListener(event -> {
+        //Action pour aller à la liste de plante
+        ImageView myPlantIcon = view.findViewById(R.id.my_plants_icon);
+        TextView myPlantText = view.findViewById(R.id.my_plants_text);
+        myPlantIcon.setOnClickListener(event -> {
             handleRedirectMyPlants();
         });
-
-        return view;
+        myPlantText.setOnClickListener(event -> {
+            handleRedirectMyPlants();
+        });
     }
 
     public void handleDisconnect() {

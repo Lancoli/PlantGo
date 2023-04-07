@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.myapplication.business.plant.Plant;
+import com.example.myapplication.logic.plant.Plant;
 
 import java.util.ArrayList;
 

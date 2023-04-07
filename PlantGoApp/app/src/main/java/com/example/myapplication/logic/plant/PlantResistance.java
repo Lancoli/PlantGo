@@ -1,13 +1,12 @@
-package com.example.myapplication.business.plant;
+package com.example.myapplication.logic.plant;
 
-public enum PlantLightNeeds {
-    LOW("Faible"),
-    MEDIUM("Moyen"),
-    IMPORTANT("Fort");
+public enum PlantResistance {
+    WEAK("fragile"),
+    STRONG("très résistance");
 
     private String value;
 
-    PlantLightNeeds(final String value) {
+    PlantResistance(final String value) {
         this.value = value;
     }
 

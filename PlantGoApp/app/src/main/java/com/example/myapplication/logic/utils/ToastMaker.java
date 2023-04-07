@@ -1,4 +1,4 @@
-package com.example.myapplication.business.utils;
+package com.example.myapplication.logic.utils;
 
 import android.content.Context;
 import android.text.TextUtils;

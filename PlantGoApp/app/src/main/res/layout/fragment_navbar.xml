@@ -9,10 +9,9 @@
     android:orientation="horizontal"
     android:layout_alignParentBottom="true"
     android:background="@color/green"
-    android:padding="15px"
+    android:paddingVertical="10dp"
 >
     <LinearLayout
-        android:id="@+id/goToMyPlantList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,14 +19,16 @@
         android:gravity="center_horizontal"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:src="@drawable/plant"
+            android:id="@+id/my_plants_icon"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/plant_icon"
             android:contentDescription="liste des plantes"
             android:background="@color/green"
             android:layout_weight="1"
             />
         <TextView
+            android:id="@+id/my_plants_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -37,7 +38,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/deconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -45,14 +45,16 @@
         android:gravity="center_horizontal"
         >
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:src="@drawable/help_icon"
+        android:id="@+id/deconnexion_icon"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:src="@drawable/on_off_icon"
         android:contentDescription="action de deconnexion"
         android:background="@color/green"
         android:layout_weight="1"
     />
         <TextView
+            android:id="@+id/deconnexion_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"

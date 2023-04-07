@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.business.plant.Plant;
+import com.example.myapplication.logic.plant.Plant;
 import com.example.myapplication.storage.DBHandler;
-import com.example.myapplication.ui.fragments.NavbarFragment;
 import com.example.myapplication.ui.fragments.CategoriesFragment;
 
 import java.util.ArrayList;

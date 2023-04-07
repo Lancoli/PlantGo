@@ -11,10 +11,10 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.business.plant.Plant;
-import com.example.myapplication.business.plant.PlantLightNeeds;
-import com.example.myapplication.business.plant.PlantResistance;
-import com.example.myapplication.business.plant.PlantSize;
+import com.example.myapplication.logic.plant.Plant;
+import com.example.myapplication.logic.plant.PlantLightNeeds;
+import com.example.myapplication.logic.plant.PlantResistance;
+import com.example.myapplication.logic.plant.PlantSize;
 import com.example.myapplication.storage.DBHandler;
 
 public class SplashActivity extends AppCompatActivity {

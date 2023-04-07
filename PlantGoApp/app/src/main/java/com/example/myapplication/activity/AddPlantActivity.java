@@ -15,9 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,10 +24,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.example.myapplication.Permissions;
+import com.example.myapplication.logic.Permissions;
 import com.example.myapplication.R;
-import com.example.myapplication.business.plant.Plant;
-import com.example.myapplication.business.utils.ToastMaker;
+import com.example.myapplication.logic.plant.Plant;
+import com.example.myapplication.logic.utils.ToastMaker;
 import com.example.myapplication.storage.DBHandler;
 
 public class AddPlantActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

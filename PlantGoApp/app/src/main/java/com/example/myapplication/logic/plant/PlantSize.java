@@ -1,4 +1,4 @@
-package com.example.myapplication.business.plant;
+package com.example.myapplication.logic.plant;
 
 public enum PlantSize {
     TINY("très petite"),
