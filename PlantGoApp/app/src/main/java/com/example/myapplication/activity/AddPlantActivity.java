@@ -6,6 +6,7 @@ import androidx.core.content.FileProvider;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +20,8 @@ import android.widget.Spinner;
 import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -28,6 +31,7 @@ import com.example.myapplication.logic.Permissions;
 import com.example.myapplication.R;
 import com.example.myapplication.logic.plant.Plant;
 import com.example.myapplication.logic.utils.ToastMaker;
+import com.example.myapplication.logic.utils.Validator;
 import com.example.myapplication.storage.DBHandler;
 
 public class AddPlantActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -148,16 +152,17 @@ public class AddPlantActivity extends AppCompatActivity implements AdapterView.O
         String finalSize = sizeSpinner.getSelectedItem().toString();
         String finalLightNeeds = lightNeedsSpinner.getSelectedItem().toString();
         String finalResistance = resistanceSpinner.getSelectedItem().toString();
-        Log.d("size", finalSize);
-        Log.d("name", finalName);
-        Log.d("resi", finalResistance);
-        Log.d("light", finalLightNeeds);
-        Log.d("image", photoPath);
 
-        final boolean nameError = ToastMaker.EmptyToastValidator(this, finalName, "entrez un nom de plante");
-        final boolean sizeError = ToastMaker.EmptyToastValidator(this, finalSize, "entrez une taille");
-        final boolean resistanceError = ToastMaker.EmptyToastValidator(this, finalResistance, "entrez une resistance");
-        final boolean lightNeedsError = ToastMaker.EmptyToastValidator(this, finalLightNeeds, "entrez les besoin en lumière");
+        final boolean nameError = Validator.EmptyValidator(finalName);
+        final boolean sizeError = Validator.EmptyValidator(finalSize);
+        final boolean resistanceError = Validator.EmptyValidator(finalResistance);
+        final boolean lightNeedsError = Validator.EmptyValidator(finalLightNeeds);
+
+        if(nameError) inputName.setError("saisir taille");
+        if(sizeError) Validator.setEmptySpinnerError(sizeSpinner, "saisir taille");
+        if(resistanceError) Validator.setEmptySpinnerError(resistanceSpinner, "saisir resistance");
+        if(lightNeedsError) Validator.setEmptySpinnerError(lightNeedsSpinner, "saisir besoins");
+
         final boolean imageUrlError = ToastMaker.EmptyToastValidator(this, photoPath, "prenez une photo de la plante");
 
         final boolean hasError = (nameError || sizeError || resistanceError || lightNeedsError || imageUrlError);

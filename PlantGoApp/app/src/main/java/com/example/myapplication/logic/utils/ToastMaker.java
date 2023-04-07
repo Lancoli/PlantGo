@@ -8,7 +8,7 @@ public class ToastMaker {
 
     public static boolean EmptyToastValidator(Context context, String valueToTest, String message) {
         boolean hasError = false;
-        if (TextUtils.isEmpty(valueToTest) || valueToTest.equals(Constants.EMPTY_OPTION)) {
+        if (Validator.EmptyValidator(valueToTest)) {
             hasError = true;
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         }
